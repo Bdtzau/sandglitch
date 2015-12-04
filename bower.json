@@ -1,0 +1,21 @@
+{
+  "name": "sandglitch",
+  "description": "App for glitching jpgs into gifs",
+  "main": "index.js",
+  "authors": [
+    "Dyoung"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ng-image-compress": "*"
+  }
+}

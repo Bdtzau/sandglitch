@@ -1,0 +1,19 @@
+{
+  "name": "sandglitch",
+  "version": "0.0.1",
+  "description": "App for glitching jpgs into gifs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dyoung",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.4.8",
+    "angular-animate": "^1.4.8",
+    "angular-aria": "^1.4.8",
+    "angular-material": "^0.11.4",
+    "glitcher": "^1.10.1",
+    "jquery": "^2.1.4"
+  }
+}

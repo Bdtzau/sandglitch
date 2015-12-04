@@ -1,0 +1,1 @@
+angular.module("sandglitch").factory("GlitchSliderFactory",function(t){var s=function(){this.searches=[],this.busy=!1,this.dexSearch=function(s,i){var n=this;this.busy||(this.busy=!0,t.searchDex(s,i).then(function(t){console.log(t);var s=t;n.busy=!1}))}};return s});

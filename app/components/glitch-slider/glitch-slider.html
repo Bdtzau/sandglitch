@@ -1,0 +1,36 @@
+<md-content class="glitch-slider" ng-controller="GlitchSliderController as slideCtrl">
+
+		<form name="effectsForm" layout="column" ng-submit="slideCtrl.submitEffects()">
+			<md-list layout="column" class="effect" ng-repeat="effect in slideCtrl.effects" flex="100">
+				
+				<div layout="row">
+					<h3 layout-padding flex>{{effect.text}}</h3>
+
+					<md-button class="md-fab md-primary" aria-label="show options for {{effect.text}}" ng-click="effect.showOptions = !effect.showOptions" flex="shrink"></md-button>
+				</div>
+				
+				
+				<md-list-item ng-repeat="(option, config) in effect.options" ng-show="effect.showOptions"
+					layout="row" layout-padding flex="100">
+					
+					<label for="option" 
+						flex>
+						
+						<p>{{option}}</p>
+					</label>
+
+					<md-slider id="option"
+						name="option" aria-label="option"
+						ng-model="config.value" min="{{config.min}}" max="{{config.max}}"
+						flex>
+					</md-slider>
+				</md-list-item>
+
+			</md-list>
+
+			<md-button type="submit" aria-label="create glitch" class="md-raised md-primary">Glitch It!</md-button>
+		</form>
+
+		
+	
+</md-content>
