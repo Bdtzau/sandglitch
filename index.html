@@ -13,8 +13,8 @@
 	<h1>sandglitch</h1>
 	
 	<div layout-sm="column" layout-gt-sm="row">
-		<div ng-include="'app/components/glitch-viewer/glitch-viewer.html'" float></div>
-		<div ng-include="'app/components/glitch-slider/glitch-slider.html'" float></div>
+		<div ng-include="'app/components/glitch-viewer/glitch-viewer.html'" flex-gt-sm="grow"></div>
+		<div ng-include="'app/components/glitch-slider/glitch-slider.html'" flex-gt-sm="35"></div>
 	</div>
 	
 
@@ -33,7 +33,10 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.11.2/angular-material.min.js"></script>
 
 	<script src="app/app.js"></script>
-	
+
+	<script src="bower_components/angular-ahdin/dist/blob-util.min.js"></script>
+	<script src="bower_components/angular-ahdin/dist/load-image.all.min.js"></script>
+	<script src="bower_components/angular-ahdin/dist/ahdin.js"></script>
 
 	<script src="app/components/glitch-slider/glitch-slider.controller.js"></script>
 	<script src="app/components/glitch-slider/glitch-slider.factory.js"></script>
@@ -43,6 +46,6 @@
 	<script src="app/components/glitch-viewer/glitch-viewer.service.js"></script>
 
 	<!-- Angular Image Compress -->
-	<script src="bower_components/ng-image-compress/ng-image-compress.js"></script>
+	<script src="app/lib/ng-image-compress/ng-image-compress.js"></script>
 </body>
 </html>

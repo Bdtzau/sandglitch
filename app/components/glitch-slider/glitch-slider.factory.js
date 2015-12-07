@@ -1,7 +1,7 @@
 angular.module('sandglitch')
 	.factory('GlitchSliderFactory', function (GlitchSliderService) {
 
-	var Pokedex = function() { // constructor
+	var Sandglitch = function() { // constructor
 
 		this.searches = [];
 		this.busy = false;
@@ -28,5 +28,5 @@ angular.module('sandglitch')
 				});
 		};
 	};
-	return Pokedex;
+	return Sandglitch;
 });

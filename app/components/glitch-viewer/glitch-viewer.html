@@ -1,5 +1,7 @@
-<md-content class="glitch-viewer" ng-controller="GlitchViewerController as viewCtrl">
+<md-content class="glitch-viewer" ng-controller="GlitchViewerController as viewCtrl" layout="column">
 
-		<input id="inputImage" type="file" accept="image/*" image="image1" resize-max-height="1000" resize-max-width="1000" resize-quality="0.7" resize-type="image/jpg" />
+		<img flex="grow" ng-src="{{ inputImage.compressed.dataURL || 'assets/img/default.jpg' }}" />
+
+		<input type="file" accept="image/*" flex />
 
 </md-content>

@@ -16,6 +16,7 @@
     "tests"
   ],
   "dependencies": {
-    "ng-image-compress": "*"
+    "ng-image-compress": "*",
+    "angular-ahdin": "~3.0.0"
   }
 }

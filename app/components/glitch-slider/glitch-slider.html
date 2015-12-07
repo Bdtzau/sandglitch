@@ -1,17 +1,19 @@
 <md-content class="glitch-slider" ng-controller="GlitchSliderController as slideCtrl">
 
 		<form name="effectsForm" layout="column" ng-submit="slideCtrl.submitEffects()">
-			<md-list layout="column" class="effect" ng-repeat="effect in slideCtrl.effects" flex="100">
+			<md-list layout="column" flex="100" class="effect" ng-repeat="effect in slideCtrl.effectQueue" track by $index>
 				
-				<div layout="row">
-					<h3 layout-padding flex>{{effect.text}}</h3>
+				<div layout="row" layout-align="none center">
+					<h3 flex>{{effect.text}}</h3>
 
-					<md-button class="md-fab md-primary" aria-label="show options for {{effect.text}}" ng-click="effect.showOptions = !effect.showOptions" flex="shrink"></md-button>
+					<md-button class="md-fab md-primary md-mini" aria-label="show options for {{effect.text}}" ng-click="effect.showOptions = !effect.showOptions" flex="shrink">
+						<md-icon md-svg-src="assets/img/equalizer.svg"></md-icon>
+					</md-button>
 				</div>
 				
 				
 				<md-list-item ng-repeat="(option, config) in effect.options" ng-show="effect.showOptions"
-					layout="row" layout-padding flex="100">
+					layout="row" layout-padding>
 					
 					<label for="option" 
 						flex>
@@ -28,7 +30,14 @@
 
 			</md-list>
 
-			<md-button type="submit" aria-label="create glitch" class="md-raised md-primary">Glitch It!</md-button>
+			<div layout="row" layout-align="none center">
+				<md-select aria-label="select effect to add" ng-model="slideCtrl.newEffect.alias" placeholder="choose effect" flex>
+					<md-option aria-label="add {{effect.text}}" value="{{effect.alias}}" ng-repeat="effect in slideCtrl.effects" track by $index>{{effect.text}}</md-option>
+				</md-select>
+				<md-button class="md-fab md-primary md-mini" aria-label="add glitch" class="md-raised md-secondary" flex="shrink" ng-click="slideCtrl.submitNewEffect()"></md-button>
+			</div>
+
+			<md-button type="submit" aria-label="create glitch" class="md-raised md-primary">Glitch It!</md-button layout-padding>
 		</form>
 
 		
