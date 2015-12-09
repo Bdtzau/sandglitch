@@ -9,11 +9,19 @@
   "author": "Dyoung",
   "license": "ISC",
   "dependencies": {
+    "10": "0.0.1",
     "angular": "^1.4.8",
     "angular-animate": "^1.4.8",
     "angular-aria": "^1.4.8",
     "angular-material": "^0.11.4",
+    "blipp": "^2.3.0",
     "glitcher": "^1.10.1",
-    "jquery": "^2.1.4"
+    "glue": "^2.4.0",
+    "good": "^6.4.0",
+    "hapi": "^11.1.2",
+    "hoek": "^3.0.4",
+    "inert": "^3.2.0",
+    "jquery": "^2.1.4",
+    "vision": "^4.0.1"
   }
 }

@@ -1,7 +1,12 @@
 <md-content class="glitch-viewer" ng-controller="GlitchViewerController as viewCtrl" layout="column">
 
-		<img flex="grow" ng-src="{{ inputImage.compressed.dataURL || 'assets/img/default.jpg' }}" />
+		<!-- <img flex="grow" ng-src="{{ inputImage.compressed.dataURL || 'assets/img/default.jpg' }}" /> -->
 
-		<input type="file" accept="image/*" flex />
+		<div class="glitch-preview" style="background-image: url( {{ viewCtrl.previewUrl || 'assets/img/default.jpg' }} ); background-size: contain; background-position: center; background-repeat: no-repeat; height: 500px;" flex="grow"></div>
 
+		<input type="file" accept="image/*" file-model="viewCtrl.inputImage" flex />
+		<!--  onchange="viewCtrl.updatePreview(this.files[0])"  -->
+
+		<md-button ng-click="viewCtrl.updatePreview()">Use this image</md-button>
+ 
 </md-content>

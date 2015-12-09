@@ -17,6 +17,7 @@
   ],
   "dependencies": {
     "ng-image-compress": "*",
-    "angular-ahdin": "~3.0.0"
+    "angular-ahdin": "~3.0.0",
+    "angular-file-model": "~0.3.1"
   }
 }

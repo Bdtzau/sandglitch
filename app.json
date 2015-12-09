@@ -1,0 +1,33 @@
+{
+	"server": {},
+	"connections": [{
+		"port": 8080,
+		"labels": ["main"]
+	}],
+	"plugins": [{
+		"blipp": {}
+	}, {
+		"inert": {}
+	}, {
+		"good": {
+			"opsInterval": 1000,
+			"reporters": [{
+				"reporter": "good-console",
+				"events": {
+					"log": "*",
+					"response": "*"
+				}
+			}]
+		}
+	}, {
+		"./apis": [{
+			"routes": {
+				"prefix": "/api"
+			}
+		}]
+	}, {
+		"./files": {}
+	}, {
+		"./views": {}
+	}]
+}

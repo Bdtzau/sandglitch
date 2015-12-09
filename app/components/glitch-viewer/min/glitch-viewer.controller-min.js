@@ -1,1 +1,1 @@
-angular.module("sandglitch").controller("GlitchViewerController",function(l){var r=this});
+angular.module("sandglitch").controller("GlitchViewerController",function(e,r){var a=this,i=new e;a.inputImage,a.previewImage,a.updatePreview=function(){var e=new FileReader;e.readAsDataURL(a.inputImage),e.onloadend=function(){a.previewUrl=e.result},a.inputImage?(a.previewImage=i.compressFile(a.inputImage),e.readAsDataURL(a.previewImage)):a.previewUrl="",console.log(a.previewUrl)}});
