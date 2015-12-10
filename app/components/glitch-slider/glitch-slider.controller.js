@@ -1,7 +1,9 @@
 angular.module('sandglitch')
-	.controller('GlitchSliderController', function (GlitchSliderFactory, $scope) {
+	.controller('GlitchSliderController', function (GlitchSliderFactory, GlitchViewerFactory, $scope) {
 
 		var vm = this;
+
+		 vm.glitchViewerFactory = new GlitchViewerFactory();
 
 		vm.newEffect = {};
 
@@ -62,7 +64,9 @@ angular.module('sandglitch')
 		};
 
 		vm.submitEffects =function () {
-			// console.log(this.effects);
+			console.log('effects submitted');
+			vm.glitchViewerFactory.updateEffects(vm.effectQueue);
+			vm.glitchViewerFactory.glitchImage();
 		};
 
 		function clone(obj) {

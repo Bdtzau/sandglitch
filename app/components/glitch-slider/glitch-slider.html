@@ -1,6 +1,6 @@
 <md-content class="glitch-slider" ng-controller="GlitchSliderController as slideCtrl">
 
-		<form name="effectsForm" layout="column" ng-submit="slideCtrl.submitEffects()">
+		<form name="effectsForm" layout="column">
 			<md-list layout="column" flex="100" class="effect" ng-repeat="effect in slideCtrl.effectQueue" track by $index>
 				
 				<div layout="row" layout-align="none center">
@@ -37,7 +37,7 @@
 				<md-button class="md-fab md-primary md-mini" aria-label="add glitch" class="md-raised md-secondary" flex="shrink" ng-click="slideCtrl.submitNewEffect()"></md-button>
 			</div>
 
-			<md-button type="submit" aria-label="create glitch" class="md-raised md-primary">Glitch It!</md-button layout-padding>
+			<md-button ng-click="slideCtrl.submitEffects()" aria-label="create glitch" class="md-raised md-primary">Glitch It!</md-button layout-padding>
 		</form>
 
 		

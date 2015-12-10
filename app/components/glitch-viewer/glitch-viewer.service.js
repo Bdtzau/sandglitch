@@ -2,13 +2,22 @@ angular.module('sandglitch')
 	.service('GlitchViewerService', function ( $http, $q) {
 
 		// var client = new nes.Client('ws://localhost:8080');
-		
-		this.sendImage = function ( img ) {
+		this.effects = [];
 
+
+		
+
+		this.sendImage = function ( img, effects ) {
+			
 			var deferred = $q.defer();
+			
+			var request = {
+				imageDataUrl: img,
+				effectsArray: effects
+			};
 
 			var url = '/sand';
-			$http.post(url, img)
+		 	$http.post(url, request)
 				.success(function (results) {
 
 					var data = results || [];
@@ -19,6 +28,8 @@ angular.module('sandglitch')
 					console.log(error);
 					deferred.reject(error);
 				});
+
+			return deferred.promise;
 		};
 
 		// client.connect(function (err) {

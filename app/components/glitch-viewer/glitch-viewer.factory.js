@@ -3,16 +3,38 @@ angular.module('sandglitch')
 
 	var GlitchPreview = function() { // constructor
 
+		this.effects;
+
+		this.origUrl;
+
+		this.previewUrl;
+
 		this.busy = false
 
-		this.compressFile = function (file, reader) {
+		this.updateEffects = function (effects) {
+			this.effects = effects;
+			console.log(this.effects);
+		};
+
+		this.compressFile = function (file) {
 
 			var self = this;
+
+
 
 			if (this.busy) {
 				return;
 			}
 			this.busy = true;
+
+			var reader = new FileReader();
+
+			reader.onloadend = function () {
+
+				self.origUrl = reader.result;
+				self.previewUrl = reader.result;
+				// vm.glitchUrl = vm.previewFactory.glitchImage(vm.readerUrl, reader);
+			}
 
 			Ahdin.compress({
 
@@ -24,24 +46,28 @@ angular.module('sandglitch')
 
 				// doSomething(compressedBlob);
 				console.log(compressedBlob);
+				self.origImage = compressedBlob;
 				reader.readAsDataURL(compressedBlob);
 				self.busy = false;
 				// this.currentSrc = compressedBlob;
 			});
 		};
 
-		this.glitchImage = function (file, reader) {
+		this.glitchImage = function () {
 
 			var self = this;
+
+			var file = this.origUrl;
 
 			if (this.busy) {
 				return;
 			}
 			this.busy = true;
 
-			GlitchViewerService.sendImage(file)
+			GlitchViewerService.sendImage(this.origUrl, this.effects)
 				.then(function (data) {
 					console.log(data);
+					self.previewUrl = data;
 					self.busy = false;
 					return data;
 				});
