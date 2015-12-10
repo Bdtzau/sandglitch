@@ -3,26 +3,30 @@ angular.module('sandglitch')
 
 		var vm = this;
 
-		var Sandglitch = new GlitchViewerFactory();
+		vm.previewFactory = new GlitchViewerFactory();
 
 		vm.inputImage;
 		vm.previewImage;
 
 		vm.updatePreview = function() {
+
 			var reader = new FileReader();
-			reader.readAsDataURL(vm.inputImage);
+
 			reader.onloadend = function () {
-				vm.previewUrl = reader.result;
+
+				vm.origUrl = reader.result;
+				vm.readerUrl = reader.result;
+				vm.glitchUrl = vm.previewFactory.glitchImage(vm.readerUrl, reader);
 			}
 
 			if (vm.inputImage) {
-				vm.previewImage = Sandglitch.compressFile(vm.inputImage);
-				reader.readAsDataURL(vm.previewImage);
+
+				vm.previewFactory.compressFile(vm.inputImage, reader);
+				window.setTimeout(function () {console.log(vm.readerImage)}, 500)
 			} else {
+
 				vm.previewUrl = "";
 			}
-			console.log(vm.previewUrl);
-			// console.log(vm.inputImage);
 		};
 
 	});

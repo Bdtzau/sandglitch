@@ -3,7 +3,6 @@ angular.module('sandglitch')
 
 		var vm = this;
 
-		// vm.pokedex = new PokeFactory();
 		vm.newEffect = {};
 
 		vm.effectCount = 0;

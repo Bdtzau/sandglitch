@@ -216,6 +216,28 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/js\/require.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/js\/require.js",
+		"outputAbbreviatedPath": "\/assets\/js\/min\/require-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 0
+		},
+	"\/assets\/js\/require1k.min.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/js\/require1k.min.js",
+		"outputAbbreviatedPath": "\/assets\/js\/min\/require1k.min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 0
+		},
 	"\/assets\/scss\/styles.scss": {
 		"createSourceMap": 0,
 		"debugStyle": 0,
@@ -865,12 +887,67 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 0
 		},
+	"\/lib\/min\/apis-min.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/lib\/min\/apis-min.js",
+		"outputAbbreviatedPath": "\/lib\/min\/min\/apis-min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 0
+		},
+	"\/lib\/min\/files-min.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/lib\/min\/files-min.js",
+		"outputAbbreviatedPath": "\/lib\/min\/min\/files-min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 0
+		},
+	"\/lib\/min\/require1k.min-min.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/lib\/min\/require1k.min-min.js",
+		"outputAbbreviatedPath": "\/lib\/min\/min\/require1k.min-min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 0
+		},
 	"\/lib\/min\/sandglitch-min.js": {
 		"fileType": 64,
 		"ignore": 1,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/lib\/min\/sandglitch-min.js",
 		"outputAbbreviatedPath": "\/lib\/min\/min\/sandglitch-min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 0
+		},
+	"\/lib\/min\/views-min.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/lib\/min\/views-min.js",
+		"outputAbbreviatedPath": "\/lib\/min\/min\/views-min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 0
+		},
+	"\/lib\/min\/websockets-min.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/lib\/min\/websockets-min.js",
+		"outputAbbreviatedPath": "\/lib\/min\/min\/websockets-min-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
@@ -893,6 +970,17 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/lib\/views.js",
 		"outputAbbreviatedPath": "\/lib\/min\/views-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 0
+		},
+	"\/lib\/websockets.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/lib\/websockets.js",
+		"outputAbbreviatedPath": "\/lib\/min\/websockets-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
@@ -929,7 +1017,7 @@
 "projectAttributes": {
 	"bowerAbbreviatedPath": "",
 	"displayValue": "sandglitch",
-	"displayValueWasSetByUser": 0,
+	"displayValueWasSetByUser": 1,
 	"iconImageName": "brackets_orange"
 	},
 "projectSettings": {

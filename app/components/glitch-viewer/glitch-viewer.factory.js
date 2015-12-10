@@ -1,19 +1,52 @@
 angular.module('sandglitch')
 	.factory('GlitchViewerFactory', function (GlitchViewerService, Ahdin) {
 
-	var Sandglitch = function() { // constructor
+	var GlitchPreview = function() { // constructor
 
-		this.compressFile = function (file) {
+		this.busy = false
+
+		this.compressFile = function (file, reader) {
+
+			var self = this;
+
+			if (this.busy) {
+				return;
+			}
+			this.busy = true;
+
 			Ahdin.compress({
+
 				sourceFile: file,
 				maxWidth: 500,
 				maxHeight: 500,
 				outputFormat: 'jpeg'
 			}).then(function(compressedBlob) {
+
 				// doSomething(compressedBlob);
-				return compressedBlob;
+				console.log(compressedBlob);
+				reader.readAsDataURL(compressedBlob);
+				self.busy = false;
+				// this.currentSrc = compressedBlob;
 			});
-		}
+		};
+
+		this.glitchImage = function (file, reader) {
+
+			var self = this;
+
+			if (this.busy) {
+				return;
+			}
+			this.busy = true;
+
+			GlitchViewerService.sendImage(file)
+				.then(function (data) {
+					console.log(data);
+					self.busy = false;
+					return data;
+				});
+
+		};
 
 		// this.searches = [];
 		// this.busy = false;
@@ -40,5 +73,5 @@ angular.module('sandglitch')
 		// 		});
 		// };
 	};
-	return Sandglitch;
+	return GlitchPreview;
 });

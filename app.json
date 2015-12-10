@@ -9,6 +9,8 @@
 	}, {
 		"inert": {}
 	}, {
+		"nes": {"auth": false}
+	}, {
 		"good": {
 			"opsInterval": 1000,
 			"reporters": [{
@@ -29,5 +31,7 @@
 		"./files": {}
 	}, {
 		"./views": {}
+	}, {
+		"./websockets": {}
 	}]
 }

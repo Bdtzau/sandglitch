@@ -1,1 +1,1 @@
-angular.module("sandglitch").service("GlitchViewerService",function(e,i){});
+angular.module("sandglitch").service("GlitchViewerService",function(e,s){this.sendImage=function(c){var o=s.defer(),n="/sand";e.post(n,c).success(function(e){var s=e||[];console.log("post success",e),o.resolve(s)}).error(function(e){console.log(e),o.reject(e)})}});
