@@ -29,6 +29,29 @@ angular.module('sandglitch')
 					deferred.reject(error);
 				});
 
+			$http({
+
+				method: 'POST',
+				url: '/sand',
+				headers: { 'Content-Type': false },
+				transformRequest: function (data) {
+					data = angular.toJson(data);
+					return data;
+				},
+				data: {'img' : img, 'effects': effects}
+			})
+			.success(function (results) {
+
+				var data = results || [];
+				console.log('post success', results);
+				deferred.resolve(data);
+			})
+			.error(function (error) {
+
+				console.log(error);
+				deferred.reject(error);
+			});;
+
 			return deferred.promise;
 		};
 
