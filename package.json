@@ -4,7 +4,8 @@
   "description": "App for glitching jpgs into gifs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
   },
   "author": "Dyoung",
   "license": "ISC",
@@ -25,5 +26,8 @@
     "jquery": "^2.1.4",
     "nes": "^2.0.0",
     "vision": "^4.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.8.1"
   }
 }

@@ -20,8 +20,6 @@ angular.module('sandglitch')
 
 			var self = this;
 
-
-
 			if (this.busy) {
 				return;
 			}
@@ -33,6 +31,7 @@ angular.module('sandglitch')
 
 				self.origUrl = reader.result;
 				self.previewUrl = reader.result;
+				self.busy = false;
 				// vm.glitchUrl = vm.previewFactory.glitchImage(vm.readerUrl, reader);
 			}
 
@@ -64,7 +63,7 @@ angular.module('sandglitch')
 			}
 			this.busy = true;
 
-			GlitchViewerService.sendImage(this.origUrl, this.effects)
+			GlitchViewerService.sendImage(this.origImage, this.effects)
 				.then(function (data) {
 					console.log(data);
 					self.previewUrl = data;

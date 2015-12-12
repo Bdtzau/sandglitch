@@ -11,23 +11,23 @@ angular.module('sandglitch')
 			
 			var deferred = $q.defer();
 			
-			var request = {
-				imageDataUrl: img,
-				effectsArray: effects
-			};
+			// var request = {
+			// 	imageDataUrl: img,
+			// 	effectsArray: effects
+			// };
 
-			var url = '/sand';
-		 	$http.post(url, request)
-				.success(function (results) {
+			// var url = '/sand';
+		 // 	$http.post(url, request)
+			// 	.success(function (results) {
 
-					var data = results || [];
-					console.log('post success', results);
-					deferred.resolve(data);
-				}).error(function (error) {
+			// 		var data = results || [];
+			// 		console.log('post success', results);
+			// 		deferred.resolve(data);
+			// 	}).error(function (error) {
 
-					console.log(error);
-					deferred.reject(error);
-				});
+			// 		console.log(error);
+			// 		deferred.reject(error);
+			// 	});
 
 			$http({
 
@@ -35,8 +35,12 @@ angular.module('sandglitch')
 				url: '/sand',
 				headers: { 'Content-Type': false },
 				transformRequest: function (data) {
-					data = angular.toJson(data);
-					return data;
+
+					var formData = new FormData();
+					formData.append('image', angular.toJson(img));
+					formData.append('effects', angular.toJson(effects));
+					
+					return formData;
 				},
 				data: {'img' : img, 'effects': effects}
 			})

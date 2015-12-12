@@ -6,11 +6,11 @@ angular.module('sandglitch')
 		vm.previewFactory = new GlitchViewerFactory();
 
 		vm.origUrl = vm.previewFactory.origUrl;
-		vm.previewUrl = vm.previewFactory.previewUrl;
+		vm.previewUrl = vm.previewFactory.previewUrl ? vm.previewFactory.previewUrl : 'assets/img/default.jpg';
 		vm.previewImage;
 
 		vm.getImgUrl = function () {
-			console.log(vm.previewFactory.previewUrl);
+			// console.log(vm.previewFactory.previewUrl);
 			return vm.previewFactory.previewUrl;
 		};
 
@@ -19,11 +19,12 @@ angular.module('sandglitch')
 			
 
 			if (vm.inputImage) {
-
+				console.log(vm.inputImage);
 				vm.previewFactory.compressFile(vm.inputImage);
+				vm.getImgUrl();
 			} else {
 
-				vm.previewUrl = "";
+				vm.previewUrl = "assets/img/default.jpg";
 			}
 		};
 

@@ -2,7 +2,7 @@
 
 		<!-- <img flex="grow" ng-src="{{ inputImage.compressed.dataURL || 'assets/img/default.jpg' }}" /> -->
 
-		<div class="glitch-preview" style="background-image: url( {{ viewCtrl.getImgUrl() }} ); background-size: contain; background-position: center; background-repeat: no-repeat; height: 500px;" flex="grow"></div>
+		<div class="glitch-preview" style="background-image: url( {{ viewCtrl.getImgUrl() || 'assets/img/default.jpg' }} ); background-size: contain; background-position: center; background-repeat: no-repeat; height: 500px;" flex="grow"></div>
 
 		<input type="file" accept="image/*" file-model="viewCtrl.inputImage" flex />
 		<!--  onchange="viewCtrl.updatePreview(this.files[0])"  -->
