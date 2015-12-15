@@ -11,6 +11,7 @@ angular.module('sandglitch')
 
 		this.sendImage = function ( img, effects ) {
 			
+			var self = this;
 			var deferred = $q.defer();
 
 			img = this.imageToGlitch;
@@ -34,6 +35,7 @@ angular.module('sandglitch')
 
 				var data = results || [];
 				console.log('post success', results);
+				self.glitchUrl = results;
 				deferred.resolve(data);
 			})
 			.error(function (error) {

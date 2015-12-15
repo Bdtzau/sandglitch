@@ -1,5 +1,5 @@
 angular.module('sandglitch')
-	.controller('GlitchViewerController', function ($scope, GlitchViewerFactory, GlitchSliderService ) {
+	.controller('GlitchViewerController', function ($scope, GlitchViewerFactory, GlitchViewerService ) {
 
 		var vm = this;
 
@@ -14,9 +14,13 @@ angular.module('sandglitch')
 			return vm.previewFactory.previewUrl;
 		};
 
+		vm.getGlitchUrl = function () {
+			// console.log(vm.previewFactory.previewUrl);
+			return GlitchViewerService.glitchUrl;
+		};
+
 		vm.updatePreview = function() {
 
-			
 
 			if (vm.inputImage) {
 				console.log(vm.inputImage);

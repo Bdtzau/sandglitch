@@ -33,7 +33,7 @@ angular.module('sandglitch')
 
 				self.origUrl = reader.result;
 				self.previewUrl = reader.result;
-
+				GlitchViewerService.updateImage(reader.result);
 				self.busy = false;
 				// vm.glitchUrl = vm.previewFactory.glitchImage(vm.readerUrl, reader);
 			}
@@ -50,7 +50,7 @@ angular.module('sandglitch')
 				// doSomething(compressedBlob);
 				console.log(compressedBlob);
 				self.origImage = compressedBlob;
-				GlitchViewerService.updateImage(compressedBlob);
+				
 				reader.readAsDataURL(compressedBlob);
 				self.busy = false;
 				// this.currentSrc = compressedBlob;
@@ -70,40 +70,16 @@ angular.module('sandglitch')
 
 			console.log(this);
 
-			GlitchViewerService.sendImage(this.origUrl, this.effects)
+			GlitchViewerService.sendImage(this.origImage, this.effects)
 				.then(function (data) {
 					console.log(data);
-					self.previewUrl = data;
+					self.glitchUrl = data;
 					self.busy = false;
 					return data;
 				});
 
 		};
 
-		// this.searches = [];
-		// this.busy = false;
-		// var after;
-
-		// this.dexSearch = function(qType, qVal) {
-		// 	var self = this;
-
-		// 	if (this.busy) {
-		// 		return;
-		// 	}
-		// 	this.busy = true;
-
-		// 	GlitchViewerService.searchDex(qType, qVal)
-		// 		.then(function (data) {
-
-		// 			console.log(data);
-
-		// 			var result = data;
-
-		// 			// result.qType = qType;
-
-		// 			self.busy = false;
-		// 		});
-		// };
 	};
 	return GlitchPreview;
 });
