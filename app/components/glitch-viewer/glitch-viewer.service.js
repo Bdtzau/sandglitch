@@ -26,8 +26,8 @@ angular.module('sandglitch')
 
 			$http.post('/api/sand', formData, {
 
-				headers: { 'Content-Type': false },
-				// transformRequest: angular.identity,
+				headers: { 'Content-Type': undefined },
+				transformRequest: angular.identity,
 			})
 			.success(function (results) {
 
