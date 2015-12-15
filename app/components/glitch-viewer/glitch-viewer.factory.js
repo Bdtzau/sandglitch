@@ -3,6 +3,8 @@ angular.module('sandglitch')
 
 	var GlitchPreview = function() { // constructor
 
+		var vm = this;
+
 		this.effects;
 
 		this.origUrl;
@@ -31,6 +33,7 @@ angular.module('sandglitch')
 
 				self.origUrl = reader.result;
 				self.previewUrl = reader.result;
+				GlitchViewerService.updateImage(reader.result);
 				self.busy = false;
 				// vm.glitchUrl = vm.previewFactory.glitchImage(vm.readerUrl, reader);
 			}
@@ -40,12 +43,14 @@ angular.module('sandglitch')
 				sourceFile: file,
 				maxWidth: 500,
 				maxHeight: 500,
-				outputFormat: 'jpeg'
+				outputFormat: 'jpeg',
+				quality: 0.8
 			}).then(function(compressedBlob) {
 
 				// doSomething(compressedBlob);
 				console.log(compressedBlob);
 				self.origImage = compressedBlob;
+
 				reader.readAsDataURL(compressedBlob);
 				self.busy = false;
 				// this.currentSrc = compressedBlob;
@@ -62,6 +67,8 @@ angular.module('sandglitch')
 				return;
 			}
 			this.busy = true;
+
+			console.log(this);
 
 			GlitchViewerService.sendImage(this.origImage, this.effects)
 				.then(function (data) {

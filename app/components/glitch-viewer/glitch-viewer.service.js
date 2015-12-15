@@ -4,45 +4,30 @@ angular.module('sandglitch')
 		// var client = new nes.Client('ws://localhost:8080');
 		this.effects = [];
 
-
+		this.updateImage = function (image) {
+			this.imageToGlitch = image;
+		}
 		
 
 		this.sendImage = function ( img, effects ) {
 			
 			var deferred = $q.defer();
+
+			img = this.imageToGlitch;
 			
-			// var request = {
-			// 	imageDataUrl: img,
-			// 	effectsArray: effects
-			// };
 
-			// var url = '/sand';
-		 // 	$http.post(url, request)
-			// 	.success(function (results) {
+			var formData = new FormData();
 
-			// 		var data = results || [];
-			// 		console.log('post success', results);
-			// 		deferred.resolve(data);
-			// 	}).error(function (error) {
+			var blob = dataURLtoBlob(img);
 
-			// 		console.log(error);
-			// 		deferred.reject(error);
-			// 	});
+			formData.append('image', blob, 'temp.jpg');
+			formData.append('effects', effects);
+			console.log(formData);
 
-			$http({
+			$http.post('/api/sand', formData, {
 
-				method: 'POST',
-				url: '/sand',
 				headers: { 'Content-Type': false },
-				transformRequest: function (data) {
-
-					var formData = new FormData();
-					formData.append('image', angular.toJson(img));
-					formData.append('effects', angular.toJson(effects));
-					
-					return formData;
-				},
-				data: {'img' : img, 'effects': effects}
+				// transformRequest: angular.identity,
 			})
 			.success(function (results) {
 
@@ -58,6 +43,15 @@ angular.module('sandglitch')
 
 			return deferred.promise;
 		};
+
+		function dataURLtoBlob(dataurl) {
+			var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
+				bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+			while(n--){
+				u8arr[n] = bstr.charCodeAt(n);
+			}
+			return new Blob([u8arr], {type:mime});
+		}
 
 		// client.connect(function (err) {
 
