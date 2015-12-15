@@ -19,9 +19,10 @@ angular.module('sandglitch')
 			var formData = new FormData();
 
 			var blob = dataURLtoBlob(img);
+			console.log(effects);
 
 			formData.append('image', blob, 'temp.jpg');
-			formData.append('effects', effects);
+			formData.append('effects', angular.toJson(effects));
 			console.log(formData);
 
 			$http.post('/api/sand', formData, {

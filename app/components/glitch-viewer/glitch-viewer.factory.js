@@ -33,7 +33,7 @@ angular.module('sandglitch')
 
 				self.origUrl = reader.result;
 				self.previewUrl = reader.result;
-				GlitchViewerService.updateImage(reader.result);
+
 				self.busy = false;
 				// vm.glitchUrl = vm.previewFactory.glitchImage(vm.readerUrl, reader);
 			}
@@ -50,7 +50,7 @@ angular.module('sandglitch')
 				// doSomething(compressedBlob);
 				console.log(compressedBlob);
 				self.origImage = compressedBlob;
-
+				GlitchViewerService.updateImage(compressedBlob);
 				reader.readAsDataURL(compressedBlob);
 				self.busy = false;
 				// this.currentSrc = compressedBlob;
@@ -70,7 +70,7 @@ angular.module('sandglitch')
 
 			console.log(this);
 
-			GlitchViewerService.sendImage(this.origImage, this.effects)
+			GlitchViewerService.sendImage(this.origUrl, this.effects)
 				.then(function (data) {
 					console.log(data);
 					self.previewUrl = data;
